@@ -1,0 +1,7 @@
+git config --global user.name "Feyez Frikha" //just once
+git config --global user.email "frikhafeyez@gmail.com" //just once 
+git remote add origin https://github.com/RedOne-7/FOD/tree/master/pfaProject //just once 
+git add .
+git commit -m "commit de l'interface X"
+git log 
+git push origin master
