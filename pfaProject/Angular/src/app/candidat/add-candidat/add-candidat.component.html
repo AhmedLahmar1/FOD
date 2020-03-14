@@ -1,1 +1,126 @@
-<p>add-candidat works!</p>
+<div class="ligne-titre row">
+  <div class="col-12">
+    <span class="text-uppercase" style="  font-size:xx-large;  font-family: cursive; margin-left: 10%;">Ajouter candidat</span>
+  </div>
+</div>
+
+<div class="ligne-vide row" style="margin-top: 5%; "></div>
+
+<div class="ligne-form row">
+  <form class="needs-validation" novalidate>
+    <!--id="add-candidat-form" #addcandidat="ngForm" -->
+    <div class="form-row">
+      <div class="col-md-5 mb-3">
+        <label for="validationCustom01">First name</label>
+        <!-- #nom_Candidat="ngForm" [(ngModel)]="candidat.nom_candidat" -->
+        <input type="text" class="form-control" id="nom_candidat" value=".." required>
+        <div class="valid-feedback">
+          Looks good!
+        </div>
+      </div>
+      <div class="col-md-5 mb-3">
+        <label for="validationCustom02">Last name</label>
+        <!-- #prenom_candidat="ngForm" [(ngModel)]="candidat.prenom_candidat" -->
+        <input type="text" class="form-control" id="prenom_candidat" value=".." required>
+        <div class="valid-feedback">
+          Looks good!
+        </div>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="col-md-4 mb-3">
+        <label for="validationCustomUsername">Email Address</label>
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroupPrepend">@</span>
+          </div>
+          <input type="text" class="form-control" id="E_mail_candidat"
+                 value="exemple@gmail.com"  aria-describedby="inputGroupPrepend" required>
+          <!-- #E_mail_candidat="ngForm" [(ngModel)]="candidat.E_mail_candidat" -->
+          <div class="invalid-feedback">
+            Please choose your Email Address.
+          </div>
+        </div>
+      </div>
+      <div class="col-md-2 mb-1">
+        <label for="validationCustom02">Key</label>
+        <!-- #key_candidat="ngForm" [(ngModel)]="candidat.key_candidat" -->
+        <input type="text" class="form-control" id="key_candidat" value="+216" required>
+        <div class="valid-feedback">
+          Looks good!
+        </div>
+      </div>
+      <div class="col-md-4 mb-3">
+        <label for="validationCustom02">Phone</label>
+        <!-- #telephone_candidat="ngForm" [(ngModel)]="candidat.telephone_candidat" -->
+        <input type="text" class="form-control" id="telephone_candidat" value="" required>
+        <div class="valid-feedback">
+          Looks good!
+        </div>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="col-md-5 mb-3">
+        <label for="validationCustom03">City</label>
+        <!-- #ville_candidat="ngForm" [(ngModel)]="candidat.ville_candidat" -->
+        <input type="text" class="form-control" id="ville_candidat" required>
+        <div class="invalid-feedback">
+          Please provide a valid city.
+        </div>
+      </div>
+      <div class="col-md-3 mb-3">
+        <label for="validationCustom05">Zip</label>
+        <!-- #zip_candidat="ngForm" [(ngModel)]="candidat.zip_candidat" -->
+        <input type="text" class="form-control" id="zip_candidat" required>
+        <div class="invalid-feedback">
+          Please provide a valid zip.
+        </div>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="col-md-10 mb-3">
+        <label for="validationCustom03"> Import PDF CV ...</label>
+        <!-- #path_cv_candidat="ngForm" [(ngModel)]="candidat.path_cv_candidat" -->
+        <input type="file" class="form-control" id="path_cv_candidat" required>
+        <div class="invalid-feedback">
+          Please provide a valid city.
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="col-md-4 mb-3"></div>
+      <div class="col-md-4 mb-3">
+        <button class="btn-large btn-submit center-align" type="submit"
+                style="font-family: cursive; height:120% ; margin-left: 5%; font-size: 30px;
+                    background-image: linear-gradient(to right, #f7ac52, #f99081);">
+          Create Candidat
+        </button>
+      </div>
+      <div class="col-md-4 mb-3"></div>
+    </div>
+
+
+  </form>
+  <div class="ligne-vide row" style="margin-top: 15%; margin-bottom: 15%;"></div>
+
+  <script>
+      // Example starter JavaScript for disabling form submissions if there are invalid fields
+      (function() {
+          'use strict';
+          window.addEventListener('load', function() {
+              // Fetch all the forms we want to apply custom Bootstrap validation styles to
+              var forms = document.getElementsByClassName('needs-validation');
+              // Loop over them and prevent submission
+              var validation = Array.prototype.filter.call(forms, function(form) {
+                  form.addEventListener('submit', function(event) {
+                      if (form.checkValidity() === false) {
+                          event.preventDefault();
+                          event.stopPropagation();
+                      }
+                      form.classList.add('was-validated');
+                  }, false);
+              });
+          }, false);
+      })();
+  </script>

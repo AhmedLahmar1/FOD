@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home/home.component';
 import { AddCandidatComponent } from './candidat/add-candidat/add-candidat.component';
 import { AddCandidatureComponent } from './candidature/add-candidature/add-candidature.component';
+import { AddSessionCandidatureComponent } from './session-candidature/add-session-candidature/add-session-candidature.component';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule} from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
@@ -14,7 +15,8 @@ import { FormsModule } from '@angular/forms';
     AppComponent,
     HomeComponent,
     AddCandidatComponent,
-    AddCandidatureComponent
+    AddCandidatureComponent,
+    AddSessionCandidatureComponent
   ],
   imports: [
     BrowserModule,
@@ -25,7 +27,8 @@ import { FormsModule } from '@angular/forms';
       { path: '', redirectTo: 'home', pathMatch: 'full' },
       { path: 'home', component: HomeComponent },
       { path: 'add-candidat', component: AddCandidatComponent },
-      { path: 'add-candidature', component: AddCandidatureComponent }
+      { path: 'add-candidature', component: AddCandidatureComponent },
+      { path: 'add-session-candidature', component: AddSessionCandidatureComponent }
     ])
   ],
   providers: [],
