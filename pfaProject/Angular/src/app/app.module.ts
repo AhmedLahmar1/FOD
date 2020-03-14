@@ -9,6 +9,10 @@ import { AddSessionCandidatureComponent } from './session-candidature/add-sessio
 import { RouterModule } from '@angular/router';
 import { HttpClientModule} from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { MainComponent } from './main/main.component';
+import { LoginComponent } from './login/login.component';
+import { SignupComponent } from './signup/signup.component';
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
 
 @NgModule({
   declarations: [
@@ -16,9 +20,13 @@ import { FormsModule } from '@angular/forms';
     HomeComponent,
     AddCandidatComponent,
     AddCandidatureComponent,
-    AddSessionCandidatureComponent
+    AddSessionCandidatureComponent,
+    MainComponent,
+    LoginComponent,
+    SignupComponent
   ],
   imports: [
+    MDBBootstrapModule.forRoot(),
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
