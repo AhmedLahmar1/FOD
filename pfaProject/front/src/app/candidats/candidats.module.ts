@@ -3,13 +3,17 @@ import { CommonModule } from '@angular/common';
 
 import { CandidatsRoutingModule } from './candidats-routing.module';
 import { ListeDesCandidatsComponent } from './liste-des-candidats/liste-des-candidats.component';
+import { ListeDesCandidaturesComponent } from './liste-des-candidatures/liste-des-candidatures.component';
+
+
 
 
 @NgModule({
-  declarations: [ListeDesCandidatsComponent],
+  declarations: [ListeDesCandidatsComponent, ListeDesCandidaturesComponent],
   imports: [
     CommonModule,
-    CandidatsRoutingModule
+    CandidatsRoutingModule,
+  
   ]
 })
 export class CandidatsModule { }

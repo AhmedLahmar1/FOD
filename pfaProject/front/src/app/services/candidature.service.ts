@@ -18,7 +18,7 @@ export class CandidatureService {
   [ "testTechnique", true ],
   [ "TestRH", false ],
 ])},{id_candidat:"2",name:"Ahmed Lahmer",offre:"developper-net",date:new Date(2017,4,4),test:new Map([
-  [ "testTechnique", true ],
+  [ "testTechnique", false ],
   [ "TestRH", false ],
 ])},{id_candidat:"2",name:"Ahmed Lahmer",offre:"developper-net",date:new Date(2018,4,4),test:new Map([
   [ "testTechnique", true ],
