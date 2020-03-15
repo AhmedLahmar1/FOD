@@ -1,0 +1,26 @@
+<h1 id="name"></h1>
+    <table class="table hoverTable" id="table">
+    <thead>
+      <tr style="background-color: coral;">
+        <th scope="col">id candidat</th>
+        <th scope="col">offre demandé</th>
+        <th scope="col">date des candidatures</th>
+      </tr>
+    </thead>
+    <tbody style="height: 10px !important; overflow: scroll; ">
+      <tr *ngFor="let item of filteredCandidature"  (click)="selectcandidature(item)" >
+        <td scope="row">{{item.id_candidat}}</td>
+        <td>{{item.offre}}</td>
+        <td>{{item.date | date:'fullDate'}}</td>
+      </tr>
+      <tr *ngIf="!collapsed1">
+          <td scope="row"  class="colp" *ngFor="let item of candidature.test |keyvalue" class="col-xs-12">
+             <a> {{item.key}}  </a>
+             <a> {{item.value}} </a>
+            </td>         
+      </tr>
+    </tbody>
+    </table>
+
+
+    
