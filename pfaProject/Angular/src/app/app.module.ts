@@ -12,7 +12,9 @@ import { FormsModule } from '@angular/forms';
 import { MainComponent } from './main/main.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
+import { ChartsModule } from 'ng2-charts';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { BaseChartDirective } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -28,6 +30,7 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
   imports: [
     MDBBootstrapModule.forRoot(),
     BrowserModule,
+    ChartsModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,

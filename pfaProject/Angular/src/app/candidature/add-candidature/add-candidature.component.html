@@ -7,7 +7,7 @@
 
 <div class="ligne-vide row" style="margin-top: 5%; "></div>
 
-  <div class="ligne-form row">
+  <div class="ligne-form row" style="margin-left: 5%;" >
     <form class="needs-validation" novalidate>
       <!--id="add-candidat-form" #addcandidat="ngForm" -->
       <div class="form-row">
@@ -35,21 +35,27 @@
           <!-- #poste_candidature="ngForm" [(ngModel)]="candidature.poste_candidature" -->
           <input type="text" class="form-control" id="poste_candidature" required>
           <div class="invalid-feedback">
-            Please provide a valid city.
+            Please provide a valid poste candidature.
           </div>
         </div>
       </div>
 
       <div class="form-row">
-        <div class="col-md-4 mb-3"></div>
-        <div class="col-md-4 mb-3">
+        <div class="col-md-7 mb-3"></div>
+        <div class="col-md-2 mb-3">
           <button class="center-align" type="submit"
-                  style="font-family: cursive; width: 80% ; height: auto; margin-left: 5%; font-size: 30px;
+                  style="font-family: cursive; font-size: 30px;
                       background-image: linear-gradient(to right, #f7ac52, #f99081);">
-            Create Candidature
+            <span>Create</span>
           </button>
         </div>
-        <div class="col-md-4 mb-3"></div>
+        <div class="col-md-1 mb-3"></div>
+        <div class="col-md-2 mb-3">
+          <button class="center-align" type="reset"
+                  style="font-family: cursive; font-size: 30px;">
+            <span>Reset</span>
+          </button>
+        </div>
       </div>
 
 
