@@ -6,11 +6,7 @@ import { MainComponent } from './main/main.component';
 
 
 
-const routes: Routes = [
-  { path:'', component:LoginComponent},
-  { path:'signup', component:SignupComponent},
-  {path :'main' ,component:MainComponent}
-];
+const routes: Routes = [];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

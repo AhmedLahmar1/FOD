@@ -39,7 +39,10 @@ import { BaseChartDirective } from 'ng2-charts';
       { path: 'home', component: HomeComponent },
       { path: 'add-candidat', component: AddCandidatComponent },
       { path: 'add-candidature', component: AddCandidatureComponent },
-      { path: 'add-session-candidature', component: AddSessionCandidatureComponent }
+      { path: 'add-session-candidature', component: AddSessionCandidatureComponent },
+      { path: 'login', component: LoginComponent},
+      { path: 'signup', component: SignupComponent},
+      { path: 'main' , component: MainComponent}
     ])
   ],
   providers: [],
