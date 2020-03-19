@@ -1,0 +1,23 @@
+
+<p><input #query (keyup)="filterr(query.value)" type="text" class="form-control" placeholder="search..."></p>
+<table class="table" id="table">
+    <thead>
+      <tr style="background-color: coral;">
+        <th scope="col">id candidat</th>
+        <th scope="col">Nom du candidat</th>
+        <th scope="col">offre demandé</th>
+        <th scope="col">date de dernière candidature</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody style="height: 10px !important; overflow: scroll; ">
+      <tr *ngFor="let item of filteredcandidate" >
+        <td scope="row">{{item.id_candidat}}</td>
+        <td>{{item.name}}</td>
+        <td>{{item.offre}}</td>
+        <td>{{item.date | date:'fullDate'}}</td>
+        <td><button (click)="onclick(item.id_candidat,item.name)" class="btn btn-success">details</button></td>
+      </tr>
+    </tbody>
+</table>
+

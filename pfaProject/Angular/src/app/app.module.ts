@@ -1,8 +1,8 @@
+import { HomeModule } from './home/home.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home/home.component';
 import { AddCandidatComponent } from './candidat/add-candidat/add-candidat.component';
 import { AddCandidatureComponent } from './candidature/add-candidature/add-candidature.component';
 import { AddSessionCandidatureComponent } from './session-candidature/add-session-candidature/add-session-candidature.component';
@@ -19,7 +19,6 @@ import { BaseChartDirective } from 'ng2-charts';
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
     AddCandidatComponent,
     AddCandidatureComponent,
     AddSessionCandidatureComponent,
@@ -32,18 +31,9 @@ import { BaseChartDirective } from 'ng2-charts';
     BrowserModule,
     ChartsModule,
     AppRoutingModule,
+    HomeModule,
     HttpClientModule,
     FormsModule,
-    RouterModule.forRoot([
-      { path: '', redirectTo: 'home', pathMatch: 'full' },
-      { path: 'home', component: HomeComponent },
-      { path: 'add-candidat', component: AddCandidatComponent },
-      { path: 'add-candidature', component: AddCandidatureComponent },
-      { path: 'add-session-candidature', component: AddSessionCandidatureComponent },
-      { path: 'login', component: LoginComponent},
-      { path: 'signup', component: SignupComponent},
-      { path: 'main' , component: MainComponent}
-    ])
   ],
   providers: [],
   bootstrap: [AppComponent]
