@@ -1,7 +1,8 @@
 <!-- Material form register -->
 <mdb-card>
 
-  <mdb-card-header class="info-color white-text text-center py-4">
+  <mdb-card-header class="info-color white-text text-center py-4" 
+  style=" background-image: linear-gradient(to right, #f7ac52, #f99081);">
     <h5>
       <strong>Sign up</strong>
     </h5>
@@ -11,36 +12,58 @@
   <mdb-card-body class="px-lg-5 pt-0">
 
     <!-- Form -->
-    <form ngForm="form"  (submit)="submit()" class="text-center" style="color: #757575;">
+    <form ngForm="form"  (submit)="submit()" class="text-center" style="color: #757575;" >
 
       <div class="form-row">
         <div class="col">
           <!-- First name -->
+          <div class="form-group">
           <div class="md-form">
-            <input type="text" [(ngModel)]="service.userInst.firstName" name="firstName" id="materialRegisterFormFirstName" class="form-control" mdbInput>
+            <input type="text" class="form-control" id="materialRegisterFormFirstName" required [(ngModel)]="service.userInst.firstName" name="firstName" mdbInput #firstName="ngModel" >
             <label for="materialRegisterFormFirstName">First name</label>
           </div>
+
+          <div *ngIf="firstName.touched && firstName.invalid" class="alert alert-danger">
+            Please Enter your First Name
+          </div>
+
+          </div>
+
+           
         </div>
         <div class="col">
+          <div class="form-group">
           <!-- Last name -->
           <div class="md-form">
-            <input type="email" [(ngModel)]="service.userInst.lastName" name="lastName" id="materialRegisterFormLastName" class="form-control" mdbInput>
+            <input type="text" [(ngModel)]="service.userInst.lastName" name="lastName" required id="materialRegisterFormLastName" class="form-control" mdbInput #lastName="ngModel">
             <label for="materialRegisterFormLastName">Last name</label>
           </div>
+          <div *ngIf="lastName.touched && lastName.invalid" class="alert alert-danger">
+            Please Enter your Last Name
+          </div>
         </div>
+      </div>
       </div>
 
       <!-- E-mail -->
-      <div class="md-form mt-0">
-        <input type="email" [(ngModel)]="service.userInst.email" name="email" id="materialRegisterFormEmail" class="form-control" mdbInput>
+      <div class="md-form ">
+        <div class="form-group">
+        <input type="email" [(ngModel)]="service.userInst.email" name="email" required id="materialRegisterFormEmail" class="form-control" #email="ngModel" mdbInput>
         <label for="materialRegisterFormEmail">E-mail</label>
+        <div *ngIf="email.touched && email.invalid" class="alert alert-danger">
+          Please Enter your email
+        </div>
       </div>
+    </div>
 
       <!-- Password -->
       <div class="md-form">
-        <input type="password" [(ngModel)]="service.userInst.password" name="password" id="materialRegisterFormPassword" class="form-control" aria-describedby="materialRegisterFormPasswordHelpBlock"
+        <input type="password" [(ngModel)]="service.userInst.password" name="password" required id="materialRegisterFormPassword" class="form-control" #password="ngModel" aria-describedby="materialRegisterFormPasswordHelpBlock"
           mdbInput>
         <label for="materialRegisterFormPassword">Password</label>
+        <div *ngIf="password.touched && password.invalid" class="alert alert-danger">
+          Please Enter your password
+        </div>
         <small id="materialRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4">
           At least 8 characters and 1 digit
         </small>
@@ -53,7 +76,7 @@
 
       <!-- Sign up button -->
       <button mdbBtn color="info" outline="true" rounded="true" block="true" class="my-4 waves-effect z-depth-0" mdbWavesEffect
-        type="submit">Sign in</button>
+        type="submit" [disabled]="firstName.invalid || lastName.invalid || email.invalid || password.invalid" class="btn btn-success" style="background-image: linear-gradient(to right, #f7ac52, #f99081);">Sign in</button>
 
       <!-- Social register -->
       <p>or sign up with:</p>
