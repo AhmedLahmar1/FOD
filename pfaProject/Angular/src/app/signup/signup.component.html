@@ -19,7 +19,7 @@
           <!-- First name -->
           <div class="form-group required">
           <div class="md-form">
-            <input type="text" class="form-control" id="materialRegisterFormFirstName"   formControlName="UserName">
+            <input type="text" class="form-control" id="materialRegisterFormFirstName"   formControlName="UserName" mdbInput>
             <label for="materialRegisterFormFirstName">First Name</label>
           </div>
           <label class="text-danger" *ngIf="service.formModel.get('UserName').touched && service.formModel.get('UserName').errors?.required">This field is mandatory.</label>
@@ -30,7 +30,7 @@
           <!-- Last name -->
           <div class="form-group required">
           <div class="md-form">
-            <input type="text" class="form-control" id="materialRegisterFormLastName"   formControlName="FullName">
+            <input type="text" class="form-control" id="materialRegisterFormLastName"   formControlName="FullName" mdbInput>
             <label for="materialRegisterFormFullName">Last Name</label>
           </div>
           <label class="text-danger" *ngIf="service.formModel.get('FullName').touched && service.formModel.get('FullName').errors?.required">This field is mandatory.</label>
@@ -41,7 +41,7 @@
       <!-- E-mail -->
       <div class="md-form ">
         <div class="form-group required">
-        <input type="email"  formControlName="Email" id="materialRegisterFormEmail" class="form-control">
+        <input type="email"  formControlName="Email" id="materialRegisterFormEmail" class="form-control" mdbInput>
         <label for="materialRegisterFormEmail">E-mail</label>
         <label class="text-danger" *ngIf="service.formModel.get('Email').touched && service.formModel.get('Email').errors?.email">Invalid email address.</label>
       </div>
@@ -52,13 +52,13 @@
         <div formGroupName="Passwords">
           <div class="form-group required">
             <label>Password</label>
-            <input type="password" class="form-control" formControlName="Password">
+            <input type="password" class="form-control" formControlName="Password" mdbInput>
             <label class="text-danger" *ngIf="service.formModel.get('Passwords.Password').touched && service.formModel.get('Passwords.Password').errors?.required">This field is mandatory.</label>
             <label class="text-danger" *ngIf="service.formModel.get('Passwords.Password').touched && service.formModel.get('Passwords.Password').errors?.minlength">Minimum 5 characters required.</label>
           </div>
           <div class="form-group required">
             <label>Confirm Password</label>
-            <input type="password" class="form-control" formControlName="ConfirmPassword">
+            <input type="password" class="form-control" formControlName="ConfirmPassword" mdbInput>
             <label class="text-danger" *ngIf="service.formModel.get('Passwords.ConfirmPassword').touched && service.formModel.get('Passwords.ConfirmPassword').errors?.required">This field is mandatory.</label>
             <label class="text-danger" *ngIf="service.formModel.get('Passwords.ConfirmPassword').touched && service.formModel.get('Passwords.ConfirmPassword').errors?.passwordMismatch">Confirm Password does not match.</label>
           </div>
