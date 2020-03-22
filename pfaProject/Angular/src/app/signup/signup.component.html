@@ -12,60 +12,59 @@
   <mdb-card-body class="px-lg-5 pt-0">
 
     <!-- Form -->
-    <form ngForm="form"  (submit)="submit()" class="text-center" style="color: #757575;" >
+    <form [formGroup]="service.formModel"  autocomplete="off" (submit)="onSubmit()" class="text-center" style="color: #757575;" >
 
       <div class="form-row">
         <div class="col">
           <!-- First name -->
-          <div class="form-group">
+          <div class="form-group required">
           <div class="md-form">
-            <input type="text" class="form-control" id="materialRegisterFormFirstName" required [(ngModel)]="service.userInst.firstName" name="firstName" mdbInput #firstName="ngModel" >
-            <label for="materialRegisterFormFirstName">First name</label>
+            <input type="text" class="form-control" id="materialRegisterFormFirstName"   formControlName="UserName">
+            <label for="materialRegisterFormFirstName">First Name</label>
           </div>
-
-          <div *ngIf="firstName.touched && firstName.invalid" class="alert alert-danger">
-            Please Enter your First Name
-          </div>
-
-          </div>
-
-           
+          <label class="text-danger" *ngIf="service.formModel.get('UserName').touched && service.formModel.get('UserName').errors?.required">This field is mandatory.</label>
+        </div>  
         </div>
+
         <div class="col">
-          <div class="form-group">
           <!-- Last name -->
+          <div class="form-group required">
           <div class="md-form">
-            <input type="text" [(ngModel)]="service.userInst.lastName" name="lastName" required id="materialRegisterFormLastName" class="form-control" mdbInput #lastName="ngModel">
-            <label for="materialRegisterFormLastName">Last name</label>
+            <input type="text" class="form-control" id="materialRegisterFormLastName"   formControlName="FullName">
+            <label for="materialRegisterFormFullName">Last Name</label>
           </div>
-          <div *ngIf="lastName.touched && lastName.invalid" class="alert alert-danger">
-            Please Enter your Last Name
-          </div>
+          <label class="text-danger" *ngIf="service.formModel.get('FullName').touched && service.formModel.get('FullName').errors?.required">This field is mandatory.</label>
+        </div>  
         </div>
-      </div>
       </div>
 
       <!-- E-mail -->
       <div class="md-form ">
-        <div class="form-group">
-        <input type="email" [(ngModel)]="service.userInst.email" name="email" required id="materialRegisterFormEmail" class="form-control" #email="ngModel" mdbInput>
+        <div class="form-group required">
+        <input type="email"  formControlName="Email" id="materialRegisterFormEmail" class="form-control">
         <label for="materialRegisterFormEmail">E-mail</label>
-        <div *ngIf="email.touched && email.invalid" class="alert alert-danger">
-          Please Enter your email
-        </div>
+        <label class="text-danger" *ngIf="service.formModel.get('Email').touched && service.formModel.get('Email').errors?.email">Invalid email address.</label>
       </div>
     </div>
 
       <!-- Password -->
       <div class="md-form">
-        <input type="password" [(ngModel)]="service.userInst.password" name="password" required id="materialRegisterFormPassword" class="form-control" #password="ngModel" aria-describedby="materialRegisterFormPasswordHelpBlock"
-          mdbInput>
-        <label for="materialRegisterFormPassword">Password</label>
-        <div *ngIf="password.touched && password.invalid" class="alert alert-danger">
-          Please Enter your password
+        <div formGroupName="Passwords">
+          <div class="form-group required">
+            <label>Password</label>
+            <input type="password" class="form-control" formControlName="Password">
+            <label class="text-danger" *ngIf="service.formModel.get('Passwords.Password').touched && service.formModel.get('Passwords.Password').errors?.required">This field is mandatory.</label>
+            <label class="text-danger" *ngIf="service.formModel.get('Passwords.Password').touched && service.formModel.get('Passwords.Password').errors?.minlength">Minimum 5 characters required.</label>
+          </div>
+          <div class="form-group required">
+            <label>Confirm Password</label>
+            <input type="password" class="form-control" formControlName="ConfirmPassword">
+            <label class="text-danger" *ngIf="service.formModel.get('Passwords.ConfirmPassword').touched && service.formModel.get('Passwords.ConfirmPassword').errors?.required">This field is mandatory.</label>
+            <label class="text-danger" *ngIf="service.formModel.get('Passwords.ConfirmPassword').touched && service.formModel.get('Passwords.ConfirmPassword').errors?.passwordMismatch">Confirm Password does not match.</label>
+          </div>
         </div>
         <small id="materialRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4">
-          At least 8 characters and 1 digit
+          At least 5 characters 
         </small>
       </div>
 
@@ -76,7 +75,7 @@
 
       <!-- Sign up button -->
       <button mdbBtn color="info" outline="true" rounded="true" block="true" class="my-4 waves-effect z-depth-0" mdbWavesEffect
-        type="submit" [disabled]="firstName.invalid || lastName.invalid || email.invalid || password.invalid" class="btn btn-success" style="background-image: linear-gradient(to right, #f7ac52, #f99081);">Sign in</button>
+        type="submit" [disabled]="!service.formModel.valid" class="btn btn-success" style="background-image: linear-gradient(to right, #f7ac52, #f99081);">Sign in</button>
 
       <!-- Social register -->
       <p>or sign up with:</p>

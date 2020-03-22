@@ -9,12 +9,17 @@ import { AddSessionCandidatureComponent } from './session-candidature/add-sessio
 import { RouterModule } from '@angular/router';
 import { HttpClientModule} from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { MainComponent } from './main/main.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { ChartsModule } from 'ng2-charts';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { BaseChartDirective } from 'ng2-charts';
+import { UserService } from './Services/user.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+ 
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -34,8 +39,11 @@ import { BaseChartDirective } from 'ng2-charts';
     HomeModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot()
   ],
-  providers: [],
+  providers: [UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

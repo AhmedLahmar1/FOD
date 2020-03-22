@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
-
+import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
-import { User } from '../models/user.model';
 
 
 @Injectable({
@@ -9,22 +8,39 @@ import { User } from '../models/user.model';
 })
 export class UserService {
 
-  url:string="https://localhost:5001/api/users"
-  user:User[];
-  userInst:User;
+  constructor(private fb: FormBuilder, private http: HttpClient) { }
+  readonly BaseURI = "http://localhost:57793/api" ;
 
-  constructor(private http:HttpClient) { }
+  formModel = this.fb.group({
+    UserName: ['', Validators.required],
+    Email: ['', Validators.email],
+    FullName: ['', Validators.required],
+    Passwords: this.fb.group({
+      Password: ['', [Validators.required, Validators.minLength(5)]],
+      ConfirmPassword: ['', Validators.required]
+    }, { validator: this.comparePasswords })
 
-  getAllUsers(){
-     this.http.get(this.url).toPromise().then(
-       res=>{
-         this.user=res as User[];
-       }
-     )
+  });
+
+  comparePasswords(fb: FormGroup) {
+    let confirmPswrdCtrl = fb.get('ConfirmPassword');
+    //passwordMismatch
+    //confirmPswrdCtrl.errors={passwordMismatch:true}
+    if (confirmPswrdCtrl.errors == null || 'passwordMismatch' in confirmPswrdCtrl.errors) {
+      if (fb.get('Password').value != confirmPswrdCtrl.value)
+        confirmPswrdCtrl.setErrors({ passwordMismatch: true });
+      else
+        confirmPswrdCtrl.setErrors(null);
+    }
   }
-  postUser(){
 
-    return this.http.post(this.url,this.userInst);
-
+  register() {
+    var body = {
+      UserName: this.formModel.value.UserName,
+      Email: this.formModel.value.Email,
+      FullName: this.formModel.value.FullName,
+      Password: this.formModel.value.Passwords.Password
+    };
+    return this.http.post(this.BaseURI + '/ApplicationUser/Register', body);
   }
 }
