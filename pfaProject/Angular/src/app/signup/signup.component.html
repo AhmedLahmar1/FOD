@@ -1,19 +1,33 @@
 <!-- Material form register -->
 <mdb-card>
-
-  <mdb-card-header class="info-color white-text text-center py-4" 
-  style=" background-image: linear-gradient(to right, #f7ac52, #f99081);">
-    <h5>
-      <strong>Sign up</strong>
-    </h5>
+  <mdb-card-header class="info-color white-text text-center py-4"
+                   style=" background-image: linear-gradient(to right, #f7ac52, #f99081);">
   </mdb-card-header>
 
-  <!--Card content-->
-  <mdb-card-body class="px-lg-5 pt-0">
+  <div class="container">
+    <div class="imageFOF row">
+      <div class="col-4"></div>
+      <div class="col-4">
+        <img src="../../assets/images/logo-FOD.jpg" style="width: 60%;">
+      </div>
+      <div class="col-4"></div>
+    </div>
 
-    <!-- Form -->
-    <form [formGroup]="service.formModel"  autocomplete="off" (submit)="onSubmit()" class="text-center" style="color: #757575;" >
+    <mdb-card-body class="px-lg-5 pt-0">
+      <form class="text-center" autocomplete="off" [formGroup]="service.formModel" (submit)="onSubmit()"
+            style="color: #757575;">
+        <div class="name form-row">
+          <div class="col-2"></div>
+          <div class="col-4">
+            <div class="md-form">
+              <input type="text"  formControlName="UserName" id="materialRegisterFormFirstName" class="form-control" mdbInput>
+              <label for="materialRegisterFormFirstName">First name</label>
+              <label class="text-danger" *ngIf="service.formModel.get('UserName').touched && service.formModel.get('UserName').errors?.required">
+                This field is mandatory.</label>
+            </div>
+          </div>
 
+<<<<<<< HEAD
       <div class="form-row">
         <div class="col">
           <!-- First name -->
@@ -21,21 +35,42 @@
           <div class="md-form">
             <input type="text" class="form-control" id="materialRegisterFormFirstName"   formControlName="UserName" mdbInput>
             <label for="materialRegisterFormFirstName">First Name</label>
+=======
+          <div class="col-4">
+            <div class="md-form">
+              <input type="email" id="materialRegisterFormLastName"  formControlName="FullName" class="form-control" mdbInput>
+              <label for="materialRegisterFormLastName">Last name</label>
+              <label class="text-danger" *ngIf="service.formModel.get('FullName').touched && service.formModel.get('FullName').errors?.required">
+                This field is mandatory.</label>
+            </div>
+>>>>>>> 51759e1b2f870519ea9785659eb6b2a44076a3fb
           </div>
-          <label class="text-danger" *ngIf="service.formModel.get('UserName').touched && service.formModel.get('UserName').errors?.required">This field is mandatory.</label>
-        </div>  
+          <div class="col-2"></div>
         </div>
 
+<<<<<<< HEAD
         <div class="col">
           <!-- Last name -->
           <div class="form-group required">
           <div class="md-form">
             <input type="text" class="form-control" id="materialRegisterFormLastName"   formControlName="FullName" mdbInput>
             <label for="materialRegisterFormFullName">Last Name</label>
+=======
+        <div class="Phone form-row">
+          <div class="col-2"></div>
+          <div class="col-4">
+            <div class="md-form">
+              <input type="text" id="materialRegisterFormPhone" class="form-control"
+                     aria-describedby="materialRegisterFormPhoneHelpBlock" mdbInput>
+              <label for="materialRegisterFormPhone">Phone number</label>
+              <small id="materialRegisterFormPhoneHelpBlock" class="form-text text-muted mb-4">
+                Optional - for two-step authentication
+              </small>
+            </div>
+>>>>>>> 51759e1b2f870519ea9785659eb6b2a44076a3fb
           </div>
-          <label class="text-danger" *ngIf="service.formModel.get('FullName').touched && service.formModel.get('FullName').errors?.required">This field is mandatory.</label>
-        </div>  
         </div>
+<<<<<<< HEAD
       </div>
 
       <!-- E-mail -->
@@ -61,52 +96,68 @@
             <input type="password" class="form-control" formControlName="ConfirmPassword" mdbInput>
             <label class="text-danger" *ngIf="service.formModel.get('Passwords.ConfirmPassword').touched && service.formModel.get('Passwords.ConfirmPassword').errors?.required">This field is mandatory.</label>
             <label class="text-danger" *ngIf="service.formModel.get('Passwords.ConfirmPassword').touched && service.formModel.get('Passwords.ConfirmPassword').errors?.passwordMismatch">Confirm Password does not match.</label>
+=======
+
+        <div class="email form-row">
+          <div class="col-2"></div>
+          <div class="col-6 md-form mt-0">
+            <input type="email" formControlName="Email" id="materialRegisterFormEmail" class="form-control" mdbInput>
+            <label for="materialRegisterFormEmail">E-mail</label>
+            <label class="text-danger" *ngIf="service.formModel.get('Email').touched && service.formModel.get('Email').errors?.email">
+              Invalid email address.</label>
+>>>>>>> 51759e1b2f870519ea9785659eb6b2a44076a3fb
           </div>
+          <div class="col-4"></div>
         </div>
-        <small id="materialRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4">
-          At least 5 characters 
-        </small>
-      </div>
 
-     
+        <div class="password form-row">
+          <div class="col-2"></div>
+          <div class="col-6 md-form">
+            <input type="password" formControlName="Password" id="materialRegisterFormPassword" class="form-control"
+                   aria-describedby="materialRegisterFormPasswordHelpBlock" mdbInput>
+            <label for="materialRegisterFormPassword">Password</label>
+            <label class="text-danger" *ngIf="service.formModel.get('Passwords.Password').touched && service.formModel.get('Passwords.Password').errors?.required">
+              This field is mandatory.</label>
+            <small class="text-danger" *ngIf="service.formModel.get('Passwords.Password').touched && service.formModel.get('Passwords.Password').errors?.minlength">
+              Minimum 5 characters required.</small>
+          </div>
+          <div class="col-4"></div>
+        </div>
 
-      <!-- Newsletter -->
-      <mdb-checkbox>Subscribe to our newsletter</mdb-checkbox>
+        <div class="password form-row">
+          <div class="col-2"></div>
+          <div class="col-6 md-form">
+            <input type="password" formControlName="ConfirmPassword" class="form-control"
+                   aria-describedby="materialRegisterFormPasswordHelpBlock" mdbInput>
+            <label for="materialRegisterFormPassword">Confirm Password</label><label class="text-danger" *ngIf="service.formModel.get('Passwords.ConfirmPassword').touched && service.formModel.get('Passwords.ConfirmPassword').errors?.required">This field is mandatory.</label>
+            <label class="text-danger" *ngIf="service.formModel.get('Passwords.ConfirmPassword').touched && service.formModel.get('Passwords.ConfirmPassword').errors?.passwordMismatch">Confirm Password does not match.</label>
 
-      <!-- Sign up button -->
-      <button mdbBtn color="info" outline="true" rounded="true" block="true" class="my-4 waves-effect z-depth-0" mdbWavesEffect
-        type="submit" [disabled]="!service.formModel.valid" class="btn btn-success" style="background-image: linear-gradient(to right, #f7ac52, #f99081);">Sign in</button>
+          </div>
+          <div class="col-4"></div>
+        </div>
 
-      <!-- Social register -->
-      <p>or sign up with:</p>
+        <div class="row">
+          <div class="col-2"></div>
+          <div class="col-md-4">
+            <mdb-checkbox>Subscribe to our newsletter</mdb-checkbox>
+          </div>
+          <div class="col-md-6"></div>
+        </div>
 
-      <a type="button" class="light-blue-text mx-2">
-        <mdb-icon fab icon="facebook"></mdb-icon>
-      </a>
-      <a type="button" class="light-blue-text mx-2">
-        <mdb-icon fab icon="twitter"></mdb-icon>
-      </a>
-      <a type="button" class="light-blue-text mx-2">
-        <mdb-icon fab icon="linkedin"></mdb-icon>
-      </a>
-      <a type="button" class="light-blue-text mx-2">
-        <mdb-icon fab icon="heart"></mdb-icon>
-      </a>
+        <div class="row">
+          <div class="col-md-4"></div>
+          <div class="col-md-2">
 
-      <hr>
-
-      <!-- Terms of service -->
-      <p>By clicking
-        <em>Sign up</em> you agree to our
-        <a href="" target="_blank">terms of service</a>. </p>
-        
-       
-        
-    </form>
-    <!-- Form -->
-
-  </mdb-card-body>
+            <button type="submit" [disabled]="!service.formModel.valid" mdbBtn color="info" outline="true" rounded="true" block="true"
+                    class="my-4 waves-effect z-depth-0" mdbWavesEffect
+                    style="background-image: linear-gradient(to right, #f7ac52, #f99081);">
+              <span style="color: white">Create </span>
+            </button>
+          </div>
+          <div class="col-md-5"></div>
+        </div>
+      </form>
+    </mdb-card-body>
+  </div>
 
 </mdb-card>
-<!-- Material form register -->
-
