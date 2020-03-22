@@ -9,7 +9,13 @@ import { HomeComponent } from './home.component';
 
 
 @NgModule({
-  declarations: [HomeComponent,AddCandidatComponent,AddCandidatureComponent,ListeDesCandidatsComponent,ListeDesCandidaturesComponent],
+  declarations: [
+    HomeComponent,
+    AddCandidatComponent,
+    AddCandidatureComponent,
+    ListeDesCandidatsComponent,
+    ListeDesCandidaturesComponent
+  ],
   imports: [
     CommonModule,
     HomeRoutingModule

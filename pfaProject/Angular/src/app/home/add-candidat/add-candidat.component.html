@@ -1,12 +1,84 @@
-    <div class="ligne-titre row">
-      <div class="col-3"></div>
+<!-- left menu  -->
+<div style="width: 100%; speak-header: once;background-image: linear-gradient(to right, #f7ac52, #f99081);">
 
-      <div class="col-8">
-        <span class="text-uppercase" style="  font-size:large;  font-family: cursive; margin-left: 10%;">Ajouter candidat</span>
+  <div id="myNav" class="overlay">
+    <div class="overlay-content"style=" ">
+      <div class="ligne-0 row" >
+        <div class="fermer col-1 col-sm-1">
+          <span class="closebtn" style="cursor:pointer" onclick="closeNav()">&times;</span>
+        </div>
+        <div class="espacement col-8 col-sm-8" style="height: 100vh;">
+          <div class="imageFOD row">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-8">
+              <a href="../vue-html/Index.html" data-toggle="tooltip" title="Home"><div class="text-center">
+                <img src="../../../assets/images/logo-FOD.jpg"
+                     class="logo-image-nav img mx-auto" alt="Responsive image" style="width: 100% ; margin-top: 5%;"></div>
+              </a>
+            </div>
+            <div class="col-sm-2"></div>
+          </div>
+
+          <div class="row">
+            <div class="aaaa col-12 col-sm-12">
+
+              <div class="title-liste-1">
+                <label style="vertical-align: text-top;"><a routerLink="/add-candidat" > Ajout Condidat.</a> </label>
+              </div>
+
+              <div style="margin-top: 5%;"></div>
+              <div class="menu-item">
+                <a routerLink="add-candidature" style="color: black;">
+                  <span class="liste text-black" onclick="closeNav()"><a routerLink="/add-candidature" >Ajout Condidature.</a></span>
+                </a>
+              </div>
+
+              <div style="margin-top: 5%;"></div>
+              <div class="menu-item">
+                <a routerLink="liste-des-candidats" style="color: black;">
+                  <span class="liste text-black" onclick="closeNav()"><a routerLink="/liste-des-candidat">liste des candidats.</a></span>
+                </a>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
-    <div class="ligne-vide row" style="margin-top: 5%; "></div>
+  </div>
+  <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+</div>
+<!-- nav-bar -->
 
+<div style="width: 100%; height: 1%; background-image: linear-gradient(to right, #f7ac52, #f99081);">
+  <div class="row">
+    <div class="col-10">  </div>
+    <div class="col-2">
+      <button type="button" class="btn btn-outline-dark btn-sm" style=" margin-top: -25%; align-content: center;"
+              cdkDropListGroup[routerLink]="['/']" routerLinkActive="router-link-active">
+        <span class="liste text-black"><strong>Logout</strong></span>
+        <i class="fas fa-power-off" style=" width: 5%; margin-left: 5%; margin-right: 10% ;"></i>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- contenu menu left -->
+<div class="feyez" style="width: 90%">
+  <div class="ligne-titre row">
+    <div class="col-3"></div>
+
+    <div class="col-8">
+            <span class="text-uppercase" style=" font-size:large;font-family: cursive; margin-left: 10%;">
+              Ajouter candidat</span>
+    </div>
+  </div>
+  <div class="ligne-vide row" style="margin-top: 5%;"></div>
+</div>
+
+<!-- le contenu  -->
+<div class="container">
   <div class="ligne-form row" style="margin-left: 5% ;">
     <form class="needs-validation" novalidate>
       <!--id="add-candidat-form" #addcandidat="ngForm" -->
@@ -113,3 +185,4 @@
         })();
     </script>
   </div>
+</div>
