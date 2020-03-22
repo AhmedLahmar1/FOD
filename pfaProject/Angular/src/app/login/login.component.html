@@ -1,49 +1,69 @@
 <mdb-card><!-- Material form login -->
-    <mdb-card-header class="info-color white-text text-center py-4"
-                     style=" background-image: linear-gradient(to right, #f7ac52, #f99081);">
-      <div class="row">
-        <div class="col-2"> <img src="../../assets/images/logo-FOD.jpg" style="width: 35%" ></div>
-        <div class="col-2"><h5><strong>Sign in</strong></h5></div>
+  <!-- nav-bar -->
+
+  <mdb-card-header class="info-color white-text text-center py-4"
+                   style=" background-image: linear-gradient(to right, #f7ac52, #f99081);">
+  </mdb-card-header>
+
+  <div class="container">
+    <div class="imageFOF row">
+      <div class="col-4"></div>
+      <div class="col-4">
+        <img src="../../assets/images/logo-FOD.jpg" style="width: 60%;">
       </div>
-    </mdb-card-header>
-    <!--Card content-->
+      <div class="col-4"></div>
+    </div>
     <mdb-card-body class="px-lg-5 pt-0">
       <!-- Form -->
       <form class="text-center" style="color: #757575;">
-        <div class="md-form"> <!-- Email -->
-          <input type="email" id="materialLoginFormEmail" class="form-control" required ngModel name="email" #email ="ngModel" mdbInput>
-          <label for="materialLoginFormEmail">E-mail</label>
-          <div *ngIf="email.touched && email.invalid" class="alert alert-danger">
-            Please Enter your Email
+        <div class="row">
+          <div class="col-4"></div>
+          <div class="col-4 text-center md-form" style="width: 40%;" > <!-- Email -->
+            <input type="email" id="materialLoginFormEmail" class="form-control" ngModel name="email" #email ="ngModel" mdbInput >
+            <label for="materialLoginFormEmail">E-mail</label>
+            <div *ngIf="email.touched && email.invalid" class="alert alert-danger">
+              Please Enter your Email
+            </div>
           </div>
-        </div>
-        <div class="md-form"> <!-- Password -->
-          <input type="password" id="materialLoginFormPassword" class="form-control" required ngModel name="password" #password="ngModel"  mdbInput>
-          <label for="materialLoginFormPassword">Password</label>
-          <div *ngIf="password.touched && password.invalid" class="alert alert-danger">
-            Please Enter your password
-          </div>
+          <div class="col-4"></div>
         </div>
 
-        <div class="d-flex justify-content-around">
-          <div><!-- Remember me --><mdb-checkbox>Remember me</mdb-checkbox></div>
-          <div><!-- Forgot password --><a href="">Forgot password?</a></div>
-        </div>        <!-- Sign in button -->
+        <div class="row">
+          <div class="col-4"></div>
+          <div class="col-4 text-center md-form"  style="width: 40%;"> <!-- Password -->
+            <input type="password" id="materialLoginFormPassword" class="form-control" ngModel name="password" #password="ngModel"  mdbInput>
+            <label for="materialLoginFormPassword">Password</label>
+            <div *ngIf="password.touched && password.invalid" class="alert alert-danger">
+              Please Enter your password
+            </div>
+          </div>
+          <div class="col-4"></div>
+        </div>
+
+        <div class="row">
+          <div class="col-4"></div>
+          <div class="col-4 d-flex justify-content-around">
+            <div><!-- Remember me --><mdb-checkbox>Remember me</mdb-checkbox></div>
+            <div><!-- Forgot password --><a href="">Forgot password?</a></div>
+          </div>
+          <div class="col-4"></div>
+        </div>
+
+        <!-- Sign in button -->
         <div class="row">
           <div class="col-md-5"></div>
           <div class="col-md-2">
             <button mdbBtn outline="true" rounded="true" block="true"
                     class="my-4 waves-effect z-depth-0" mdbWavesEffect type="submit" [routerLink]="['/home']"
-                    routerLinkActive="router-link-active" style="background-image: linear-gradient(to right, #f7ac52, #f99081);"
-                    [disabled]="email.invalid || password.invalid" class="btn btn-success">
+                    routerLinkActive="router-link-active" [disabled]="email.invalid || password.invalid" style="background-image: linear-gradient(to right, #f7ac52, #f99081);">
               <span style="color: white">Sign in </span>
             </button>
           </div>
           <div class="col-md-5"></div>
         </div>
-                            <!-- Register -->
+        <!-- Register -->
         <p>Not a member?<a routerLink="/signup" >Register</a></p>
-                            <!-- Social login -->
+        <!-- Social login -->
         <p>or sign in with:</p>
         <a type="button" mdbBtn floating="true" color="fb" size="sm"><mdb-icon fab icon="facebook"></mdb-icon></a>
         <a type="button" mdbBtn floating="true" color="tw" size="sm"><mdb-icon fab icon="twitter"></mdb-icon></a>
@@ -52,5 +72,9 @@
       </form>
       <!-- Form -->
     </mdb-card-body>
-  </mdb-card>
-  <!-- Material form login -->
+  </div>
+
+  <!--Card content-->
+
+</mdb-card>
+<!-- Material form login -->
