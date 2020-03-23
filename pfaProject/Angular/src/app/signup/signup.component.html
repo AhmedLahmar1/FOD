@@ -20,9 +20,11 @@
           <div class="form-group required">
           <div class="md-form">
             <input type="text" class="form-control" id="materialRegisterFormFirstName"   formControlName="UserName" mdbInput>
-            <label for="materialRegisterFormFirstName">First Name</label>
+            <label for="materialRegisterFormFirstName">User Name</label>
           </div>
-          <label class="text-danger" *ngIf="service.formModel.get('UserName').touched && service.formModel.get('UserName').errors?.required">This field is mandatory.</label>
+          <div *ngIf="service.formModel.get('UserName').touched && service.formModel.get('UserName').errors?.required" class="alert alert-danger">
+            This field is mandatory
+          </div>
         </div>  
         </div>
 
@@ -31,9 +33,11 @@
           <div class="form-group required">
           <div class="md-form">
             <input type="text" class="form-control" id="materialRegisterFormLastName"   formControlName="FullName" mdbInput>
-            <label for="materialRegisterFormFullName">Last Name</label>
+            <label for="materialRegisterFormFullName">Full Name</label>
           </div>
-          <label class="text-danger" *ngIf="service.formModel.get('FullName').touched && service.formModel.get('FullName').errors?.required">This field is mandatory.</label>
+          <div *ngIf="service.formModel.get('FullName').touched && service.formModel.get('FullName').errors?.required" class="alert alert-danger">
+            This field is mandatory
+          </div>
         </div>  
         </div>
       </div>
@@ -41,10 +45,12 @@
       <!-- E-mail -->
       <div class="md-form ">
         <div class="form-group required">
-        <input type="email"  formControlName="Email" id="materialRegisterFormEmail" class="form-control" mdbInput>
+        <input type="email"  formControlName="Email" id="materialRegisterFormEmail" class="form-control" formControlName="Email" mdbInput>
         <label for="materialRegisterFormEmail">E-mail</label>
-        <label class="text-danger" *ngIf="service.formModel.get('Email').touched && service.formModel.get('Email').errors?.email">Invalid email address.</label>
-      </div>
+        </div>
+        <div *ngIf="service.formModel.get('Email').touched && service.formModel.get('Email').errors?.email" class="alert alert-danger">
+          This field is mandatory
+        </div>
     </div>
 
       <!-- Password -->
@@ -53,14 +59,24 @@
           <div class="form-group required">
             <label>Password</label>
             <input type="password" class="form-control" formControlName="Password" mdbInput>
-            <label class="text-danger" *ngIf="service.formModel.get('Passwords.Password').touched && service.formModel.get('Passwords.Password').errors?.required">This field is mandatory.</label>
-            <label class="text-danger" *ngIf="service.formModel.get('Passwords.Password').touched && service.formModel.get('Passwords.Password').errors?.minlength">Minimum 5 characters required.</label>
+            <div *ngIf="service.formModel.get('Passwords.Password').touched && service.formModel.get('Passwords.Password').errors?.required" class="alert alert-danger">
+              This field is mandatory
+            </div>
+            <div *ngIf="service.formModel.get('Passwords.Password').touched && service.formModel.get('Passwords.Password').errors?.minlength" class="alert alert-danger">
+              Minimum 5 characters required
+            </div> 
           </div>
           <div class="form-group required">
             <label>Confirm Password</label>
             <input type="password" class="form-control" formControlName="ConfirmPassword" mdbInput>
-            <label class="text-danger" *ngIf="service.formModel.get('Passwords.ConfirmPassword').touched && service.formModel.get('Passwords.ConfirmPassword').errors?.required">This field is mandatory.</label>
-            <label class="text-danger" *ngIf="service.formModel.get('Passwords.ConfirmPassword').touched && service.formModel.get('Passwords.ConfirmPassword').errors?.passwordMismatch">Confirm Password does not match.</label>
+            
+            <div *ngIf="service.formModel.get('Passwords.ConfirmPassword').touched && service.formModel.get('Passwords.ConfirmPassword').errors?.required" class="alert alert-danger">
+              Minimum 5 characters required
+            </div>
+            <div *ngIf="service.formModel.get('Passwords.ConfirmPassword').touched && service.formModel.get('Passwords.ConfirmPassword').errors?.passwordMismatch" class="alert alert-danger">
+              Confirm Password does not match
+            </div>
+            
           </div>
         </div>
         <small id="materialRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4">
