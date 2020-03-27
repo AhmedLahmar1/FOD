@@ -1,6 +1,6 @@
 import { HomeModule } from './home/home.module';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule , enableProdMode } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AddCandidatComponent } from './candidat/add-candidat/add-candidat.component';
@@ -18,8 +18,10 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { BaseChartDirective } from 'ng2-charts';
 import { UserService } from './Services/user.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
- 
+
 import { ToastrModule } from 'ngx-toastr';
+import { CandidatListComponent } from './Components/candidat-list/candidat-list.component';
+import { CandidatAddComponent } from './Components/candidat-add/candidat-add.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import { ToastrModule } from 'ngx-toastr';
     AddSessionCandidatureComponent,
     MainComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    CandidatListComponent,
+    CandidatAddComponent
   ],
   imports: [
     MDBBootstrapModule.forRoot(),

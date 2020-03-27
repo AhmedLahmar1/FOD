@@ -1,0 +1,142 @@
+<div style="width: 100%; speak-header: once;background-image: linear-gradient(to right, #f7ac52, #f99081);">
+  <div id="myNav" class="overlay">
+
+    <div class="overlay-content" style=" ">
+      <div class="ligne-0 row">
+
+        <div class="fermer col-1 col-sm-1">
+          <span class="closebtn" style="cursor:pointer" onclick="closeNav()">&times;</span>
+        </div>
+
+        <div class="espacement col-8 col-sm-8" style="height: 100vh;">
+
+          <div class="imageFOD row">
+            <div class="col-sm-2"></div>
+
+            <div class="col-sm-8">
+              <a href="../vue-html/Index.html" data-toggle="tooltip" title="Home">
+                <div class="text-center">
+                  <img src="../../../assets/images/logo-FOD.jpg"
+                       class="logo-image-nav img mx-auto" alt="Responsive image" style="width: 100% ; margin-top: 5%;">
+                </div>
+              </a>
+            </div>
+
+            <div class="col-sm-2"></div>
+          </div>
+
+          <div class="row">
+            <div class="aaaa ">
+
+              <div class="title-liste-1">
+                <label style="vertical-align: text-top;"> Ajout Condidat.</label>
+              </div>
+
+              <div class="menu-item">
+                <a routerLink="add-candidature" style="color: black;">
+                              <span class="liste text-black" onclick="closeNav()">
+                                <a routerLink="/add-candidature">Ajout Condidature.</a>
+                              </span>
+                </a>
+              </div>
+
+              <div class="menu-item">
+                <a routerLink="liste-des-candidats" style="color: black;">
+                              <span class="liste text-black" onclick="closeNav()">
+                                <a routerLink="/liste-des-candidat">liste des candidats.</a></span>
+                </a>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+</div>
+<!--btn Logout -->
+<div style="width: 100%; height: 1%; background-image: linear-gradient(to right, #f7ac52, #f99081);">
+  <div class="row">
+    <div class="col-10"></div>
+    <div class="col-2">
+      <button type="button" class="btn btn-outline-dark btn-sm"
+              style=" margin-top: -25%; align-content: center;">
+        <!-- cdkDropListGroup[routerLink]="['/']" routerLinkActive="router-link-active" -->
+        <span class="liste text-black"><strong>Logout</strong></span>
+        <i class="fas fa-power-off" style=" width: 5%; margin-left: 5%; margin-right: 10% ;"></i>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- le contenu form -->
+<div class="container" style="width:fit-content">
+  <!-- Title -->
+  <div class="ligne-titre row">
+
+        <span class="text-uppercase" style=" font-size:xx-large;font-family: cursive; margin-top: 3%;
+         margin-left: 4%; margin-bottom: 3%;">Ajouter Candidat</span>
+  </div>
+  <form ngForm="add-candidat-form" (submit)="submitAddCandidat()"  class="needs-validation" novalidate>
+    <div class="form-row">
+      <div class="col-md-5 mb-3">
+        <label>Nom Candidat</label>
+        <input type="text" class="form-control" [(ngModel)]="service.candidat.nomCandidat"  name="nomCandidat" required>
+        <div class="valid-feedback">Looks good!</div>
+      </div>
+      <div class="col-md-5 mb-3">
+        <label>prénom Candidat: </label>
+        <input type="text" class="form-control" [(ngModel)]="service.candidat.prenomCandidat"  name="prenomCandidat" required>
+        <div class="valid-feedback">Looks good!</div>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="col-md-5">
+        <label>Date Naissance</label>
+        <input type="date" class="form-control" [(ngModel)]="service.candidat.dateNaissance" name="dateNaissance: " required>
+        <div class="valid-feedback">Looks good!</div>
+      </div>
+      <div class="col-md-5 mb-3">
+        <label>Key and Phone</label>
+        <input type="text" class="form-control" [(ngModel)]="service.candidat.telephoneCandidat"  name="telephoneCandidat"
+               value="+216 50 500 500" required>
+        <div class="valid-feedback">Looks good!</div>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="col-md-7">
+        <label>Adresse Email Candidat</label>
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroupPrepend">@</span>
+          </div>
+          <input type="text" class="form-control" [(ngModel)]="service.candidat.emailCandidat"  name="emailCandidat"
+                 value="exemple@gmail.com" aria-describedby="inputGroupPrepend" required>
+          <div class="invalid-feedback">Please choose your Email Address.</div>
+        </div>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="col-md-5">
+        <label>Ville Candidat</label>
+        <input type="text" class="form-control" [(ngModel)]="service.candidat.villeCandidat"  name="villeCandidat" required>
+        <div class="invalid-feedback">Please provide a valid city.</div>
+      </div>
+
+      <div class="col-md-5">
+        <label>Pays Candidat</label>
+        <input type="text" class="form-control" [(ngModel)]="service.candidat.paysCandidat"  name="paysCandidat" required>
+        <div class="invalid-feedback">Please provide a valid country.</div>
+      </div>
+    </div>
+    <div class="form-row">
+      <button style="font-family: cursive; font-size: 20px; margin-top: 5%;  margin-left: 40%;background: #fd746b;"
+              class="btn btn-outline-dark btn-lg" (click)="submitAddCandidat()" type="submit"> <span>Create</span>
+      </button>
+      <button style="font-family: cursive; font-size: 20px; margin-left:2%; margin-top: 5%; "
+              class="btn btn-outline-dark btn-lg" type="reset"><span>Reset</span>
+      </button>
+    </div>
+  </form>
+</div>

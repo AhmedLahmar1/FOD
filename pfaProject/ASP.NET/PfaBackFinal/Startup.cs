@@ -33,13 +33,17 @@ namespace HindiBackApp
         {
             services.Configure<ApplicationSettings>(Configuration.GetSection("ApplicationSettings"));
             services.AddControllers();
-            services.AddDbContext<AuthentificationContext>(options =>
-            options.UseSqlServer(Configuration.GetConnectionString("IdentityConnection")));
+            services.AddDbContext<UserDBContext>(options =>
+            options.UseSqlServer(Configuration.GetConnectionString("UserDB")));
 
-           
+           /* services.AddCors(options => options.AddPolicy("CorsPolicy", builder =>
+            {
+                builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
+            }));
+            */
 
             services.AddIdentity<HindiBackApp.Models.ApplicationUser, IdentityRole>()
-            .AddEntityFrameworkStores<AuthentificationContext>()
+            .AddEntityFrameworkStores<UserDBContext>()
              .AddDefaultTokenProviders();
 
             services.Configure<IdentityOptions>(options =>
@@ -93,18 +97,13 @@ namespace HindiBackApp
             {
                 app.UseDeveloperExceptionPage();
             }
-
+            //app.UseCors("CorsPolicy");
             app.UseCors(builder =>
             builder.WithOrigins(Configuration["ApplicationSettings:Client_URL"].ToString())
-            .AllowAnyHeader()
-            .AllowAnyMethod()
-
-            );
+            .AllowAnyHeader().AllowAnyMethod() );
 
             app.UseRouting();
-
             app.UseAuthorization();
-
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();

@@ -1,0 +1,26 @@
+<label class="card-title"> Liste des Candidats </label>
+<table class="table table-bordered table-hover">
+  <thead>
+    <th>nom candidat</th>
+    <th>prenom candidat</th>
+    <th>date naissance</th>
+    <th>email candidat</th>
+    <th>telephone candidat</th>
+    <th>ville candidat</th>
+    <th>pays candidat</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of service.candidats ">
+      <td> {{ item.nomCandidat}} </td>
+      <td> {{ item.prenomCandidat}} </td>
+      <td> {{ item.dateNaissance}} </td>
+      <td> {{ item.emailCandidat}} </td>
+      <td> {{ item.telephoneCandidat}} </td>
+      <td> {{ item.villeCandidat}} </td>
+      <td> {{ item.paysCandidat}} </td>
+
+    </tr>
+  </tbody>
+
+
+</table>

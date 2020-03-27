@@ -7,10 +7,10 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace HindiBackApp.Migrations
+namespace HdBackApp.Migrations
 {
     [DbContext(typeof(AuthentificationContext))]
-    [Migration("20200321164437_InitialCreate")]
+    [Migration("20200325121134_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

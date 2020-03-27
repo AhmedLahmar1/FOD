@@ -1,2 +1,61 @@
 @import url(~bootstrap);
 //@import url ("bootstrap.min.css");
+.overlay {
+  height: 100%; width: 0; position: fixed; z-index: 1; top: 0; left: 0;
+  background-color: rgb(255,255,255);
+  background-color: rgba(255,255,255); overflow-x: hidden; transition: 0.5s;
+}
+
+.overlay-content {
+  position: relative;  width: 100%; margin-top: 0px;
+}
+
+.overlay a {
+  text-decoration: none; font-size: large; color: #818181; transition: 0.3s;
+}
+
+.overlay a:hover, .overlay a:focus {
+  color: #f1f1f1;
+
+}
+.overlay .closebtn {
+  /*position: absolute;*/ top: 20px; left: 45px; font-size: 60px;
+}
+
+.container-home > .ligne-0{
+  margin-top: 5%;margin-left: 5%;
+}
+.container-home > .ligne-0 > .fas {
+  font-size: 2rem;
+}
+.container-home > .ligne-0 > .fab {
+  font-size: 2rem;
+}
+
+.reseaux-sociaux a:hover {
+  color: #0056b3;
+  text-decoration: none;
+}
+
+.aaaa{
+  background-color: white!important; margin-top: 15%;
+}
+
+.title-liste-1{
+  font-family: Aharoni; color: black; width: 90% !important; height: 40px; opacity: .7; border-radius: 5px 0 6px 0 / 40px 0;
+  background-clip:padding-box;background-image: linear-gradient(to right, #f7ac52, #f99081); margin-top: 30px;
+  font-size: large; vertical-align: bottom;
+}
+.menu-item a:hover{
+  font-family: Aharoni; font-weight: boldest; color: black; width: 50% !important; height: 20px ;opacity: .7; font-size: large;
+  border-radius: 5px 0 6px 0 / 40px 0; background-clip:padding-box; background-image: linear-gradient(to right, #f7ac52, #f99081);
+  text-decoration-line: none;
+}
+.liste {
+  font-family: Aharoni; font-weight: boldest; font-size: small;
+}
+
+.liste-1{
+  font-family: Aharoni; font-weight: boldest; color: black;width: 200px !important; height: 30px;opacity: .7;
+  border-radius: 5px 0 6px 0 / 40px 0;background-clip:padding-box;background-image: linear-gradient(to right, #f7ac52, #f99081);
+}

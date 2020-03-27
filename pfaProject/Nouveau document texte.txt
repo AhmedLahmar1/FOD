@@ -5,3 +5,41 @@ git add .
 git commit -m "commit de l'interface X"
 git log 
 git push origin master
+
+
+***********************************************
+
+Install-Package Microsoft.EntityFrameworkCore.Tools -Version 3.1.2
+
+Add-Migration "InitialCreate"
+
+scaffold-dbcontext "server DESKTOP-E5PKPLM\MSSQLSERVER01; database=UserDB; integrated security=true" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models
+
+Update-Database 
+
+
+// Startup.cs
+ public void ConfigureServices(IServiceCollection services)
+        {
+            services.Configure<ApplicationSettings>(Configuration.GetSection("ApplicationSettings"));
+            services.AddControllers();
+            services.AddDbContext<UserDBContext>(options =>
+            options.UseSqlServer(Configuration.GetConnectionString("UserDB")));
+
+           /* services.AddCors(options => options.AddPolicy("CorsPolicy", builder =>
+            {
+                builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
+            }));
+            */
+
+            services.AddIdentity<HindiBackApp.Models.ApplicationUser, IdentityRole>()
+            .AddEntityFrameworkStores<UserDBContext>()
+             .AddDefaultTokenProviders();
+
+
+
+
+"ConnectionStrings": {
+    "UserDB": "server=DESKTOP-E5PKPLM\\MSSQLSERVER01; database=UserDB; integrated security=true",
+    "IdentityConnection": "Server=DESKTOP-E5PKPLM\\MSSQLSERVER01; Database=UserDB;Trusted_connection=True; MultipleActiveResultSets=True;"
+  },

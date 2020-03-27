@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace HindiBackApp.Migrations
+namespace HdBackApp.Migrations
 {
     public partial class InitialCreate : Migration
     {
