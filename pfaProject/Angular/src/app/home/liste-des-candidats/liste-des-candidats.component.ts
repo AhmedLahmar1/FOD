@@ -1,5 +1,4 @@
 import { Candidature } from './../../models/Candidature';
-import { CandidatService } from './../../services/candidat.service';
 import { CandidatureService } from './../../services/candidature.service';
 import { Component, OnInit, Query } from '@angular/core';
 import { Router } from '@angular/router';
@@ -11,13 +10,14 @@ import { Router } from '@angular/router';
   styleUrls: ['./liste-des-candidats.component.scss']
 })
 export class ListeDesCandidatsComponent implements OnInit {
+  candidats;
 candidatures:Array<Candidature>
 oldcandidatures:Array<Candidature>
 candidature:Candidature;
 latestcandidature:Candidature[]=new Array;
 filteredcandidate:Candidature[];
 candidatureSeparee:Candidature[][]=[];
-  constructor(private CandidatureService:CandidatureService,private CandidatService:CandidatService,private router: Router) { 
+  constructor(private CandidatureService:CandidatureService,private router: Router) { 
   this.candidatures=this.CandidatureService.findAll();
   var unique = [...new Set(this.candidatures.map(item => item.id_candidat))];
   this.oldcandidatures=this.candidatures;
@@ -41,8 +41,10 @@ this.latestcandidature.filter(p=>p.name.includes(query)):this.latestcandidature
   }
  
 
-  ngOnInit(): void {
-    console.log(this.latestcandidature)
+  ngOnInit() {
+    this.CandidatureService.getCandidats().subscribe(candidats =>{this.candidats=candidats;
+    console.log(this.candidats)})
+    
     
   }
   

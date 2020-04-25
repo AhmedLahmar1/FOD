@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CandidatComponent } from './candidat/candidat.component';
+import { CandidatItemComponent } from '../candidat-item/candidat-item.component';
 import { AddCandidatComponent } from './add-candidat/add-candidat.component';
 
 
 
 @NgModule({
-  declarations: [CandidatComponent, AddCandidatComponent],
+  declarations: [CandidatItemComponent, AddCandidatComponent],
   imports: [
     CommonModule
   ]

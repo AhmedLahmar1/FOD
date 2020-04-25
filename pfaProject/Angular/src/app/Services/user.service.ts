@@ -9,7 +9,7 @@ import { HttpClient } from '@angular/common/http';
 export class UserService {
 
   constructor(private fb: FormBuilder, private http: HttpClient) { }
-  readonly BaseURI = "http://localhost:57793/api" ;
+  readonly BaseURI = "http://localhost:50186/api" ;
 
   formModel = this.fb.group({
     UserName: ['', Validators.required],
@@ -36,10 +36,10 @@ export class UserService {
 
   register() {
     var body = {
-      UserName: this.formModel.value.UserName,
-      Email: this.formModel.value.Email,
-      FullName: this.formModel.value.FullName,
-      Password: this.formModel.value.Passwords.Password
+     UserName: this.formModel.value.UserName,
+     Email: this.formModel.value.Email,
+     FullName: this.formModel.value.FullName,
+     Password: this.formModel.value.Passwords.Password
     };
     return this.http.post(this.BaseURI + '/ApplicationUser/Register', body);
   }

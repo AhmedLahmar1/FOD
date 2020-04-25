@@ -1,7 +1,12 @@
 import { Candidature } from './Candidature';
 export class Candidat {
-    id_candidat:string
+    id:number;
     nom:string;
-   candidature:Candidature[]=[];
+    prenom:string;
+    dateDeNaissance:Date;
+    email:string;
+    ville:string;
+    telephone:number;
+    candidatures:Candidature[]=[];
    
 }

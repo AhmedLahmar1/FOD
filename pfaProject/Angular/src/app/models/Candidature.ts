@@ -1,8 +1,12 @@
+import { historique } from './historique';
+import { Candidat } from './Candidat';
+
 export class Candidature {
 
-    id_candidat:string;
-    name:string
+   id:number;
+    Candidat:Candidat;
+    CandidatId:number;
     offre:string;
-    date:Date;
-    test :Map<string,boolean>;
+    dateCandidature:Date;
+    historique:historique;
 }

@@ -16,6 +16,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using HdBackApp.Models;
+using Newtonsoft.Json;
 
 namespace HindiBackApp
 {
@@ -35,8 +36,12 @@ namespace HindiBackApp
             services.AddControllers();
             services.AddDbContext<AuthentificationContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("IdentityConnection")));
+            services.AddMvc()
+             .AddJsonOptions(options => {
+                 options.JsonSerializerOptions.IgnoreNullValues = true;
+             });
 
-           
+
 
             services.AddIdentity<HindiBackApp.Models.ApplicationUser, IdentityRole>()
             .AddEntityFrameworkStores<AuthentificationContext>()
@@ -44,6 +49,7 @@ namespace HindiBackApp
 
             services.Configure<IdentityOptions>(options =>
             {
+           
                 options.Password.RequireDigit = false;
                 options.Password.RequireNonAlphanumeric = false;
                 options.Password.RequireLowercase = false;
@@ -51,6 +57,12 @@ namespace HindiBackApp
                 options.Password.RequiredLength = 5;
             }
             );
+            services.AddControllersWithViews()
+    .AddNewtonsoftJson(options => {
+        options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
+        options.SerializerSettings.NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore;
+        }
+);
 
             services.AddCors();
             //Jwt Authentication
@@ -95,7 +107,7 @@ namespace HindiBackApp
             }
 
             app.UseCors(builder =>
-            builder.WithOrigins(Configuration["ApplicationSettings:Client_URL"].ToString())
+            builder.WithOrigins("http://localhost:4200")
             .AllowAnyHeader()
             .AllowAnyMethod()
 

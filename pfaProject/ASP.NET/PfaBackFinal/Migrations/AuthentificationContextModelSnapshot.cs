@@ -15,9 +15,89 @@ namespace HindiBackApp.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "3.1.2")
+                .HasAnnotation("ProductVersion", "3.1.3")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+            modelBuilder.Entity("HdBackApp.Models.Candidat", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("DateDeNaissanse")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Nom")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Prenom")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Telephone")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Ville")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Candidats");
+                });
+
+            modelBuilder.Entity("HdBackApp.Models.Candidature", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("CandidatId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("DateCandidature")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Offre")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CandidatId");
+
+                    b.ToTable("Candidatures");
+                });
+
+            modelBuilder.Entity("HdBackApp.Models.Historique", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("CandidatureId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("TestPsycho")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TestRH")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TestTechnique")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CandidatureId")
+                        .IsUnique();
+
+                    b.ToTable("Historiques");
+                });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
                 {
@@ -229,6 +309,24 @@ namespace HindiBackApp.Migrations
                         .HasColumnType("nvarchar(150)");
 
                     b.HasDiscriminator().HasValue("ApplicationUser");
+                });
+
+            modelBuilder.Entity("HdBackApp.Models.Candidature", b =>
+                {
+                    b.HasOne("HdBackApp.Models.Candidat", "Candidat")
+                        .WithMany("candidatures")
+                        .HasForeignKey("CandidatId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("HdBackApp.Models.Historique", b =>
+                {
+                    b.HasOne("HdBackApp.Models.Candidature", "Candidature")
+                        .WithOne("historique")
+                        .HasForeignKey("HdBackApp.Models.Historique", "CandidatureId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

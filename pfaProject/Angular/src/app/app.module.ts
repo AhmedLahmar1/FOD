@@ -20,6 +20,9 @@ import { UserService } from './Services/user.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
  
 import { ToastrModule } from 'ngx-toastr';
+import { CandidatItemComponent } from './candidat-item/candidat-item.component';
+import { CandidatCandidaturePageComponent } from './candidat-candidature-page/candidat-candidature-page.component';
+import { CandidatureItemComponent } from './candidature-item/candidature-item.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +32,10 @@ import { ToastrModule } from 'ngx-toastr';
     AddSessionCandidatureComponent,
     MainComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    CandidatItemComponent,
+    CandidatCandidaturePageComponent,
+    CandidatureItemComponent
   ],
   imports: [
     MDBBootstrapModule.forRoot(),

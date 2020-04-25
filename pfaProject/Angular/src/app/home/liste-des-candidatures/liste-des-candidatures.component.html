@@ -82,8 +82,8 @@
 
 <!-- le contenu  -->
 <div class="container">
-  <div class="row">
-
+  <div class="row" >
+    <div class="col-md-8">
     <table class="table hoverTable" id="table">
       <thead>
       <tr style="background-image: linear-gradient(to right, #f7ac52, #f99081);">
@@ -93,22 +93,37 @@
       </tr>
       </thead>
       <tbody style="height: 10px !important; overflow: scroll; ">
-      <tr *ngFor="let item of filteredCandidature"  (click)="selectcandidature(item)" >
-        <td scope="row">{{item.id_candidat}}</td>
+      <tr  scope="row" *ngFor="let item of filteredCandidature" (click)="selectcandidature(item)" [class.active]="isSelected(item)"
+      >
+        <td  scope="row">{{item.id_candidat}}</td>
         <td>{{item.offre}}</td>
         <td>{{item.date | date:'fullDate'}}</td>
-      </tr>
-      <tr *ngIf="!collapsed1">
-        <td scope="row"  class="colp" *ngFor="let item of candidature.test |keyvalue" class="col-xs-12">
-          <a> {{item.key}}  </a>
-          <a> {{item.value}} </a>
-        </td>
+        
       </tr>
       </tbody>
     </table>
   </div>
+  
+  <div class="col-md-4">
+    <div class=" panel panel-default">
+      <div class="panel-heading align-middle" >Historique des candidatures</div>
+      <div class="panel-body" *ngFor="let item of currentCandidature.historique " >
+        <ul>
+          <li><div class="title">test-technique</div>{{item.testTechnique}}</li>
+          <li><div class="title">date-de-validation</div>{{item.dateTestTech | date:'mediumDate'}}</li>
+          <li><div class="title">test-psycho</div>{{item.testPsycho}}</li>
+          <li><div class="title">date-de-validation</div>{{item.dateTestPsycho | date:'mediumDate'}}</li>
+          <li><div class="title">test-RH</div>{{item.testRH}}</li>
+          <li><div class="title">date-de-validation</div>{{item.dateTestRH|  date:'mediumDate'}}</li>
 
+        </ul>
+      </div>
+    </div>
+  </div>
+  </div>
 </div>
+
+
 
 
 

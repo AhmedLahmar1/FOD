@@ -77,3 +77,56 @@ div ul  li{
 colp{
   width: auto;
 }
+
+tr{cursor: pointer; transition: all .25s ease-in-out}
+.active{background-color: lightgrey; font-weight: bold;}
+.panel-heading{
+  text-align: center;
+  background-color: lightgray;
+  color: black;
+  border-radius: 8px;
+  font-size: large;
+  position: relative;
+  height: 50px;
+  margin-top: 20px;
+  left: 40%;
+  top: 50%;
+  transform: translateX(-50%);
+  transform: translateY(-50%);
+}
+.panel-body{
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%);
+  transform: translateY(-50%);
+ position:relative;
+}
+.panel-body ul{
+ padding: 0px;
+ margin:0px;
+}
+.panel-body li{
+  text-align: center;
+  list-style: none;
+  float: left;
+  width: 35%;
+  height:80px;
+  background: lightgray;
+  color: black;
+  margin-right: 50px;
+  margin-bottom: 20px;
+  box-sizing: border-box;
+  box-shadow: 6px 6px 1px 0.5px rgba(136, 194, 241, 0.2);
+  border-radius: 10px;
+}
+.panel-body ul li .title{
+  width: 100%;
+  height:50px;
+  line-height: 50px;
+  background: lightcoral;    
+  text-align: center;
+  color:black;
+  font-size: 15px;
+  border-radius: 10px;
+ 
+}
